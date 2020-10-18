@@ -1,0 +1,254 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+<head runat="server">
+    <title></title>
+
+  <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="bootstrap.min.css" />
+  
+    <link  rel="stylesheet" href="w3.css"/>
+   
+    <script src="jquery-3.4.1.js"></script>
+       <script src="https://kit.fontawesome.com/6d17d89b76.js"></script>
+            <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style>
+      
+       
+        .search {
+        text-align:center;
+        }
+
+        .s {
+        padding-left:100px;
+        }
+
+        .post {
+            background-color:white;
+           border:groove;
+           border-width:thick;
+           border-radius:170px;
+         
+            
+            margin-left:40ch;
+            margin-right:40ch;
+            text-align: center;
+            position:absolute;
+            padding-left:15ch;
+            padding-right:15ch;
+            
+            /*white-space:nowrap;*/
+            white-space: normal;
+        }
+
+        .container {
+        font-size:2ch;
+        
+        }
+        /*.logo {
+        font-family:Gabriola;
+        font-size:3ch;
+        color:white;
+        }*/
+
+      .act {
+        text-align:center;
+
+
+        }
+        #label {
+        
+        color:white;
+        font-family:Gabriola;
+        font-size:25px;
+        }
+
+        #userborder {
+           border:groove;
+           border-radius:20px;
+           border-width:6px;
+           border-color:white;
+        
+        }
+        .namestyle {
+        font-family:Gabriola;
+        font-size:25px;
+        }
+
+    </style>
+
+<%--  <script type="text/javascript">
+      
+          var id =<%=Convert.ToInt32(Session["id"]) %>;
+             //alert(id);
+             if(id!=0)
+             {
+                 var x = document.getElementById("myDIV");
+                 if (x.style.display === "none") {
+                     x.style.display = "block";
+                 }
+             }
+             else
+             {
+                 $(".second").hide();
+                 $(".first").show();
+                 alert(id);
+             }
+
+             
+      
+   
+
+  </script>--%>
+  
+ 
+        
+</head>
+<body>
+    <div class="container">
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="navbar-brand logo" style="font-family:Gabriola;font-size:3ch;"><u>Magicplace</u></div>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+      &nbsp;&nbsp;
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="homepage.aspx">Home </a>
+      </li>
+        &nbsp;
+              <li class="nav-item dropdown">
+        <a class="nav-link active dropdown-toggle" href="#" id="A1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         Buy
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="Buymodule.aspx?type=apartment">Apartments</a> 
+          <a class="dropdown-item" href="Buymodule.aspx?type=Houses">Houses</a>
+          
+        </div>
+      </li>
+        &nbsp;
+          <li class="nav-item dropdown">
+        <a class="nav-link active dropdown-toggle" href="#" id="A2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         Rent
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+           
+          <a class="dropdown-item" href="Rentmodule.aspx?renttype=apartment">Apartments</a> 
+          <a class="dropdown-item" href="Rentmodule.aspx?renttype=Houses">Houses</a>
+          
+          
+        </div>
+      </li>
+        &nbsp;
+      
+              <li class="nav-item dropdown">
+        <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Sell
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="postproperty.aspx">Post your property</a>
+             <div class="dropdown-divider"></div>
+           <a class="dropdown-item" href="modifypropertydata1.aspx">Modify property data</a>
+       
+        </div>
+      </li>
+        &nbsp;
+  
+          <li class="nav-item dropdown s">
+              <div class="first">
+        <a class="nav-link active dropdown-toggle" href="#" id="A3" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         Sign In
+        </a>
+                  
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" runat="server" id="sess_in" href="log.aspx">Login</a>
+           <a class="dropdown-item" runat="server" id="sess_out" href="log.aspx" onserverclick="sess_out_ServerClick">Logout</a>
+          <a class="dropdown-item" runat="server" id="no" href="#" aria-readonly="true">You Can't Logout from here</a>
+          <div class="dropdown-divider"></div>
+            <label id="lbl_new" runat="server">&nbsp &nbsp New here? </label>
+          <a class="dropdown-item" runat="server" id="signup" href="registration.aspx">Sign up</a>
+          
+        </div>
+          </div>
+         <%--     <div class="second">
+              <a class="nav-link active dropdown-toggle" href="#" id="A4" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         Sign In
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="log.aspx">Logout</a>
+            
+          
+         
+          </div>
+        </div>--%>
+      </li>
+        &nbsp;&nbsp;&nbsp;
+        <li>
+            <div id="userborder">
+                &nbsp;&nbsp;
+            <label id="label">Welcome-</label>
+            
+            <asp:Label ID="lblusername" runat="server" CssClass="namestyle" Text="User" Font-Bold="True" Font-Italic="True" ForeColor="White"></asp:Label>
+            &nbsp;&nbsp;
+            </div>
+             <%-- &nbsp;&nbsp;&nbsp;&nbsp;--%>
+           
+        </li>
+        <li>
+              <button id="btn" class="btn btn-lg" runat="server" onserverclick="btn_ServerClick"><i class="fa fa-user-circle" aria-hidden="true"></i></button>
+
+        </li>
+
+    </ul>
+   
+  </div>
+</nav>
+  <%--  <div class="search">
+     <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+
+</div>--%>
+   <br />
+
+  <%--  <div class="search">
+ <input type="search" name="search" placeholder="Search" aria-label="Search" />
+       <button type="submit">Search</button>
+
+    </div>--%>
+        </div>
+
+
+
+
+     
+     
+
+
+
+     
+
+    
+
+       <form id="form1" runat="server">
+
+ 
+       
+                   <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+                            
+        </asp:ContentPlaceHolder>
+    </form>
+       <script src="jquery-3.4.1.js"></script>
+    <script src="bootstrap.min.js"></script>
+</body>
+</html>
